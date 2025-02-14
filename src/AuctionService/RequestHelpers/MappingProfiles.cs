@@ -1,8 +1,8 @@
-using AuctionService_controllers.DTOs;
-using AuctionService_controllers.Entities;
+using AuctionService.DTOs;
+using AuctionService.Entities;
 using AutoMapper;
 
-namespace AuctionService_controllers.RequestHelpers
+namespace AuctionService.RequestHelpers
 {
     public class MappingProfiles : Profile
     {

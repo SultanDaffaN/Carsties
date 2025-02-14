@@ -1,4 +1,4 @@
-namespace AuctionService_controllers.DTOs
+namespace AuctionService.DTOs
 {
     public class UpdateAuctionDto
     {
