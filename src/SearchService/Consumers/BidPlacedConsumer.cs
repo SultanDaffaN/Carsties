@@ -13,7 +13,8 @@ namespace SearchService.Consumers
 
             var auction = await DB.Find<Item>().OneAsync(context.Message.AuctionId);
 
-            if (context.Message.BidStatus.Contains("Accepted")
+            if (auction.CurrentHighBid == null
+                || context.Message.BidStatus.Contains("Accepted")
                 && context.Message.Amount > auction.CurrentHighBid)
             {
                 auction.CurrentHighBid = context.Message.Amount;
