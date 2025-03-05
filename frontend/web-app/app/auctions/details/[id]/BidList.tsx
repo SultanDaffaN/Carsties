@@ -4,7 +4,6 @@ import { getBidsForAuction } from "@/app/actions/auctionActions";
 import Heading from "@/app/components/Heading";
 import { useBidStore } from "@/hooks/useBidStore";
 import { Auction, Bid } from "@/types";
-import { stat } from "fs";
 import { User } from "next-auth";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -92,7 +91,7 @@ export default function BidList({ user, auction }: Props) {
           </div>
         ) : user && user.username === auction.seller ? (
           <div className="flex items-center justify-center p-2 text-lg font-semibold">
-            You can't place a bid on your own auction
+            You can&apos;t place a bid on your own auction
           </div>
         ) : (
           <BidForm auctionId={auction.id} highBid={highBid} />

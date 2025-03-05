@@ -1,7 +1,4 @@
-import {
-  getBidsForAuction,
-  getDetailedViewData,
-} from "@/app/actions/auctionActions";
+import { getDetailedViewData } from "@/app/actions/auctionActions";
 import Heading from "@/app/components/Heading";
 import React from "react";
 import CountdownTimer from "../../CountdownTimer";
@@ -10,11 +7,15 @@ import DetailSpecs from "./DetailSpecs";
 import { getCurrentUser } from "../../authAction";
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
-import BidItem from "./BidItem";
 import BidList from "./BidList";
 
-export default async function Details({ params }: { params: { id: string } }) {
-  const data = await getDetailedViewData(params.id);
+// Define the params type as a Promise
+type tParams = Promise<{ id: string }>;
+
+export default async function Details({ params }: { params: tParams }) {
+  // Await the promise for params to extract the id
+  const { id } = await params;
+  const data = await getDetailedViewData(id);
   const user = await getCurrentUser();
 
   return (

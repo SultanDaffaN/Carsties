@@ -1,12 +1,7 @@
 "use client";
 
 import { useParamsStore } from "@/hooks/useParamsStore";
-import {
-  Button,
-  Dropdown,
-  DropdownDivider,
-  DropdownItem,
-} from "flowbite-react";
+import { Dropdown, DropdownDivider, DropdownItem } from "flowbite-react";
 import { User } from "next-auth";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
